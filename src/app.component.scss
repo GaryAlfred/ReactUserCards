@@ -1,0 +1,25 @@
+:root {
+  /* CSS variables can be superior to Sass variables 
+     for simple value assignments in terms of code
+     size and flexibility.  */
+  --color-primary: #416dff;
+  --color-primary-darker: #0035b8;
+}
+html, body, #root {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  display: flex;
+  background-color: #f8f8f8;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  text-align: center;
+  height: 100%;
+}

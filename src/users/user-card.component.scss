@@ -1,0 +1,113 @@
+.user-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 300px;
+  height: 350px;
+  margin: 1.5em;  
+  animation: user-card-kf 0.4s ease;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  /* The contrast between the main background and the 
+     card was a little low. I added a box-shadow to
+     better differentiate the two spaces. In normal
+     circumstances I wouldn't do these types of changes
+     without approval. */
+  box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.20);
+
+  .user-card__header {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 107px;
+    /* I didn't make extensive use of the --color-primary
+       variable, however using CSS variables rather than Sass
+       variables allows large libraries of components to
+       have their values set dynmically (rather than have 
+       them assigned during transpilation). This can mean that
+       white-label or theme files only have to contain variable
+       declarations and usually only at :root. */ 
+    background-color: var(--color-primary);
+    /* I've set the svg path fill to "currentColor". This allows 
+       the SVG color to be contextual, thus it picks up the 
+       foreground color below. */
+    color: white;
+
+    .icon-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      cursor: pointer;
+      transform: scale(1.0);
+      transition: transform 0.25s;
+
+      &:hover {
+        transform: scale(1.2);
+        transition: transform 0.25s;
+        cursor: pointer;
+      }
+    }
+
+    /* Admittedly, I didn't try very hard to match the font
+       styles. */
+    .title {
+      margin: 14px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .avatar {
+      position: absolute;
+      top: 54px;
+      height: 128px;
+      width: 128px;
+      border: 4px solid white;
+      border-radius: 68px;
+      overflow: hidden;
+      
+      /* Working off of an image comp makes precision styling
+         a challenge for things like shadows and blurs. Providing 
+         an XD document or other professional comp would provide
+         the necessary information to avoid pixel measuring and
+         math :) */
+      box-shadow: 0px 10px 32px -18px rgba(0,0,0,0.75);
+
+      /* A zoom effect on the avatar image just for fun. */
+      & img {  
+        transform: scale(1.0);
+        transition: transform 1.25s;
+      }
+    }
+    .avatar:hover img {
+      /* The Y translation is simply to help keep the eyes 
+         in the center of the frame/circle. */
+      transform: scale(1.25) translateY(10px);
+    }
+
+  }
+
+  .user-card__main {
+    padding-top: 105px;
+    padding-bottom: 1em;
+    flex: 0 0 120px;
+
+    & div {
+      margin-bottom: 1em;
+    }
+  }
+
+  .user-editor {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex: 0 0 200px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 8px;
+  }
+
+}
